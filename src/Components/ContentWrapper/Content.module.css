@@ -1,0 +1,24 @@
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+.under_header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.header .logo {
+    width: 900px;
+    height: 100px;
+}
+.header .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}

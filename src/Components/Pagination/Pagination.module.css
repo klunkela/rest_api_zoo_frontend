@@ -1,0 +1,7 @@
+.pagination_not_selected {
+    font-size: 20px;
+}
+.pagination_selected {
+    font-size: 20px;
+    color: greenyellow;
+}

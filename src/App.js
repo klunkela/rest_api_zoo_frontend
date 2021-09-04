@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {isAuth_} from "./redux/me_selectors";
+import Login from "./Components/Login/Login";
+import ContentWrapper from "./Components/Login/ContentWrapper";
+import {Redirect, Route} from "react-router-dom";
+import { setMeToken} from "./redux/me_reducer";
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const isAuth = useSelector(isAuth_)
+
+    let token = getCookie("token")
+    console.log(token);
+    const dispatch = useDispatch()
+    dispatch(setMeToken(token))
+
+    return (
+        <div>
+            {
+                isAuth ?
+                    <ContentWrapper/>
+                    :
+                    <Redirect to={'/login'}/>
+            }
+
+            <Route path="/login" render={() => <Login/>}/>
+
+        </div>
+    );
 }
 
 export default App;

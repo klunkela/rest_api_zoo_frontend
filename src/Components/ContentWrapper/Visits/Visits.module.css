@@ -1,0 +1,11 @@
+.visits_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.visits_content {
+
+}
+.visits_side_content > div {
+border: 2px solid black;
+    margin: 4px;
+}

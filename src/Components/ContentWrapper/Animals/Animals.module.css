@@ -1,0 +1,11 @@
+.animals_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.animals_content {
+
+}
+.animals_side_content > div {
+border: 2px solid black;
+    margin: 4px;
+}
